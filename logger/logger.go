@@ -17,9 +17,10 @@ var (
 	log logger
 )
 
-type bookstoreLogger interface {
+type LoggerInterface interface {
 	Print(v ...interface{})
 	Printf(format string, v ...interface{})
+	Println(v ...interface{})
 }
 
 type logger struct {
@@ -68,7 +69,7 @@ func getOutput() string {
 	return output
 }
 
-func GetLogger() bookstoreLogger {
+func GetLogger() LoggerInterface {
 	return log
 }
 
@@ -82,6 +83,10 @@ func (l logger) Printf(format string, v ...interface{}) {
 
 func (l logger) Print(v ...interface{}) {
 	Info(fmt.Sprintf("%v", v))
+}
+
+func (l logger) Println(v ...interface{}) {
+	Info(fmt.Sprintf("%v\n", v))
 }
 
 func Info(msg string, tags ...zap.Field) {
