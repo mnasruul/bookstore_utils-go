@@ -17,7 +17,7 @@ var (
 	log logger
 )
 
-type LoggerInterface interface {
+type Interface interface {
 	Print(v ...interface{})
 	Printf(format string, v ...interface{})
 	Println(v ...interface{})
@@ -69,7 +69,7 @@ func getOutput() string {
 	return output
 }
 
-func GetLogger() LoggerInterface {
+func GetLogger() Interface {
 	return log
 }
 
