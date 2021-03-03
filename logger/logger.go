@@ -86,7 +86,7 @@ func (l logger) Print(v ...interface{}) {
 }
 
 func (l logger) Println(v ...interface{}) {
-	Info(fmt.Sprintf("%v\n", v))
+	Info(fmt.Sprintln(v))
 }
 
 func Info(msg string, tags ...zap.Field) {
